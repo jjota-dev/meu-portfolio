@@ -36,9 +36,24 @@ body {
   z-index: 100;
 }
 
-header > h1 {
+#title {
   color: var(--cor4);
   font-weight: 800;
+  background-color: var(--cor1);
+}
+
+#title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  right: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--cor1);
+  animation-name: show;
+  animation: 1s ease forwards;
+  animation-delay: 0.5s;
 }
 
 .menu {
@@ -89,11 +104,39 @@ header > h1 {
   color: var(--cor2);
 }
 
+.home-content > h1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background-color: transparent;
+  animation-name: show;
+  animation: 1s ease forwards;
+  animation-delay: 1s;
+}
+
 .home-content > h3 {
   font-size: 36px;
   font-family: "Sora", sans-serif;
   font-weight: 700;
   color: var(--cor3);
+}
+
+.home-content > h3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background-color: transparent;
+  animation-name: show;
+  animation: 1s ease forwards;
+  animation-delay: 1s;
 }
 
 .home-content > p {
@@ -102,12 +145,40 @@ header > h1 {
   font-weight: 500;
   padding: 30px 0px;
 }
+
+.home-content > p::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background-color: transparent;
+  animation-name: show;
+  animation: 1s ease forwards;
+  animation-delay: 1s;
+}
 .home-content > .botao {
   display: flex;
   justify-content: space-between;
   background: transparent;
   width: 450px;
   height: 60px;
+}
+
+.home-content > .botao::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background-color: transparent;
+  animation-name: show;
+  animation: 1s ease forwards;
+  animation-delay: 1s;
 }
 
 .botao > a {
@@ -154,7 +225,9 @@ header > h1 {
 
 .botao a:hover {
   color: var(--cor3);
-  transition: 0.5s;
+  transition: 0.7s;
+  transform: scale(1.2);
+  box-shadow: 0px 0px 20px #03fda1a6;
 }
 
 .botao a:hover::before {
@@ -172,9 +245,168 @@ header > h1 {
 
 .icon {
   position: absolute;
-  bottom: 40px;
-  width: 170px;
+  bottom: 25px;
+  width: 220px;
 
   display: flex;
   justify-content: space-between;
+}
+.icon > a {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  background: transparent;
+  border: 2px solid var(--cor2);
+  border-radius: 50%;
+  font-size: 20px;
+  color: var(--cor2);
+  text-decoration: none;
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.icon a::before {
+  content: " ";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 0%;
+  height: 100%;
+  background: var(--cor2);
+  z-index: -1;
+  transition: width 0.5s ease-in-out;
+}
+
+.icon a:hover::before {
+  z-index: -2;
+  width: 100%;
+  background: var(--cor2);
+}
+
+.icon a:hover {
+  color: var(--cor3);
+  transition: 0.7s;
+  transform: scale(1.2);
+  box-shadow: 0px 0px 20px #03fda1a6;
+}
+
+#img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  height: 100%;
+  background: transparent;
+}
+
+.img-site {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 70px;
+
+  right: 50px;
+  overflow: hidden;
+}
+
+.img-site:hover {
+  transition: 1s ease-in-out;
+  opacity: 30%;
+}
+
+.efeito {
+  background: var(--cor1);
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes showRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#title {
+  opacity: 0; /* começa invisível */
+  animation: showRight 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes showRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.home-content > h1 {
+  opacity: 0; /* começa invisível */
+  animation: showRight 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes showRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.home-content > h3 {
+  opacity: 0; /* começa invisível */
+  animation: showRight 1s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes showRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.home-content > p {
+  opacity: 0; /* começa invisível */
+  animation: showRight 1s ease forwards;
+  animation-delay: 1.4s;
+}
+
+@keyframes showRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.home-content > .botao {
+  opacity: 0; /* começa invisível */
+  animation: showRight 1s ease forwards;
+  animation-delay: 1.8s;
 }
